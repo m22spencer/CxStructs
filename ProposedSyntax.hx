@@ -1,4 +1,8 @@
-
+//Personally I'd rather just do things the way it is now.
+//          without type safety
+//But people complain all the time about type safety....
+//          Afterall, why use your brain when you can spam 
+//          F5 and read your list of compiler errors.
 
 function A ()
 {
@@ -9,12 +13,13 @@ function A ()
     struct(myStruct.color) = 0xFF00FF00;
     --OR--
     myStruct.struct.color = 0xFF00FF00;
-    You get the point.
+    //You get the point.
 
-    var myOtherStructVar = myStruct;   //Fails because myStruct doesn't actually exist
+    var newStruct = myStruct;   //Fails because myStruct doesn't actually exist
+    structCopy(myStruct, newStruct);
 
     
-    B (myStruct);       //passes __STRUCT__ to B
+    B (struct(myStruct));       //passes __STRUCT__ to B
 }
 
 function B (struct:Struct)
